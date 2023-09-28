@@ -45,6 +45,16 @@ authRouter.get(
   },
 );
 
+// Extra endpoint to check on Render a list for all users
+authRouter.get(
+  '/admin',
+  async (req, res, next) => {
+    const userRecords = await users.findAll({});
+    const list = userRecords.map((user) => user);
+    res.status(200).json(list);
+  }
+);
+
 // authRouter.get('/secret', bearerAuth, async (req, res, next) => {
 //   res.status(200).send('Welcome to the secret area');
 // });
