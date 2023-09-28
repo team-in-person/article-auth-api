@@ -14,6 +14,6 @@ const article = articleModel(sequelize, DataTypes);
 
 module.exports = {
   db: sequelize,
-  article: new Collection(article),
+  articles: new Collection(article),
   users: userModel(sequelize, DataTypes),
 };

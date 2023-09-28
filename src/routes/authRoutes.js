@@ -40,7 +40,7 @@ authRouter.get(
   permissions('delete'),
   async (req, res, next) => {
     const userRecords = await users.findAll({});
-    const list = userRecords.map((user) => user.username);
+    const list = userRecords.map((user) => user);
     res.status(200).json(list);
   },
 );
