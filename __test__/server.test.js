@@ -20,7 +20,7 @@ describe(' Testing our auth server', () => {
 
     expect(response.status).toEqual(404);
     expect(response.body.message).toEqual(
-      'Sorry, we could not find what you were looking for'
+      'Sorry, we could not find what you were looking for',
     );
   });
 
