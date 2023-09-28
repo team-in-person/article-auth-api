@@ -1,20 +1,10 @@
 'use strict';
 
 const express = require('express');
-const dataModules = require('../models');
+
 const bearer = require('../../src/auth/middleware/bearer.js');
 const acl = require('../../src/auth/middleware/acl.js');
 const router = express.Router();
-
-// router.param('model', (req, res, next) => {
-//   const modelName = req.params.model;
-//   if (dataModules[modelName]) {
-//     req.model = dataModules[modelName];
-//     next();
-//   } else {
-//     next('Invalid Model');
-//   }
-// });
 
 router.get('/articles', bearer, acl('read'), handleGetAll);
 router.get('/articles/:id', bearer, acl('read'), handleGetOne);
