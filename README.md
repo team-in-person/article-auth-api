@@ -12,6 +12,8 @@ Framework around a role-based, authenticated, authorized CRUD express server for
 - to run:
   - `npm run dev`
 
+![Whiteboard1](image.png)
+![Whiteboard2](image-1.png)
 
 ## Contributers
 - Chester Coloma
