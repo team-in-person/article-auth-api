@@ -11,10 +11,9 @@ const DATABASE_CONFIG = { logging: false };
 
 const sequelize = new Sequelize(DATABASE_URL, DATABASE_CONFIG);
 const article = articleModel(sequelize, DataTypes);
-const users = userModel(sequelize, DataTypes);
 
 module.exports = {
   db: sequelize,
-  article: new Collection(article),
-  users: new Collection(users),
+  articles: new Collection(article),
+  users: userModel(sequelize, DataTypes),
 };
