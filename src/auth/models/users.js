@@ -10,7 +10,7 @@ const userModel = (sequelize, DataTypes) => {
     username: { type: DataTypes.STRING, required: true, unique: true },
     password: { type: DataTypes.STRING, required: true },
     role: {
-      type: DataTypes.ENUM('user', 'writer', 'editor', 'admin'),
+      type: DataTypes.ENUM('user', 'writer', 'admin'),
       required: true,
       defaultValue: 'user',
     },
@@ -29,15 +29,14 @@ const userModel = (sequelize, DataTypes) => {
       get() {
         const acl = {
           user: ['read'],
-          writer: ['read', 'create'],
-          editor: ['read', 'create', 'update'],
+          writer: ['read', 'create', 'update'],
           admin: ['read', 'create', 'update', 'delete'],
         };
         return acl[this.role];
       },
     },
   });
-
+  
   model.beforeCreate(async (user) => {
     let hashedPass = await bcrypt.hash(user.password, 10);
     user.password = hashedPass;
