@@ -30,7 +30,7 @@ describe('Auth Router', () => {
 
   it('Can create a new user', async () => {
     const response = await mockRequest
-      .post('/api/signup')
+      .post('/signup')
       .send(userData.testUser);
     const userObject = response.body;
 
@@ -43,7 +43,7 @@ describe('Auth Router', () => {
   it('Can signin with basic auth string', async () => {
     let { username, password } = userData.testUser;
     const response = await mockRequest
-      .post('/api/signin')
+      .post('/signin')
       .auth(username, password);
 
     const userObject = response.body;
@@ -80,7 +80,7 @@ describe('Auth Router', () => {
         // First sign-in to get the token
         let { username, password } = userData[role];
         const signinResponse = await mockRequest
-          .post('/api/signin')
+          .post('/signin')
           .auth(username, password);
 
         const token = signinResponse.body.token;
