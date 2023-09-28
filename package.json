@@ -4,6 +4,8 @@
   "description": "## Contributers - Chester Coloma - Christian Tojot - Paul Brown - David Danilchik",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

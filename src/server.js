@@ -7,7 +7,6 @@ const cors = require('cors');
 // Esoteric Resources
 const errorHandler = require('./error-handlers/500.js');
 const notFound = require('./error-handlers/404.js');
-const logger = require('./middleware/logger.js');
 
 const v2Routes = require('./routes/v2.js');
 const authRoutes = require('./routes/authRoutes.js');
@@ -21,11 +20,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(logger);
 
 // Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/v2', v2Routes);
+app.use('/api', authRoutes);
+app.use('/api', v2Routes);
 
 // Catchalls
 app.use(notFound);
