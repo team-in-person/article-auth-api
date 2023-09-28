@@ -45,6 +45,7 @@ authRouter.get(
   },
 );
 
+// Extra endpoint to check on Render a list for all users
 authRouter.get(
   '/admin',
   async (req, res, next) => {
